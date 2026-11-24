@@ -1,0 +1,103 @@
+{
+  "name": "신호등",
+  "tags": [
+    {
+      "address": "X0",
+      "name": "시작",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "Y30",
+      "name": "녹색등",
+      "meaning": "램프",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y31",
+      "name": "황색등",
+      "meaning": "램프",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y32",
+      "name": "적색등",
+      "meaning": "램프",
+      "direction": "output",
+      "contact": "A"
+    }
+  ],
+  "op": {
+    "start": "X0"
+  },
+  "table": {
+    "initial": "green",
+    "steps": [
+      {
+        "id": "green",
+        "name": "녹색",
+        "outputs": [
+          "Y30"
+        ],
+        "timer": 3
+      },
+      {
+        "id": "yellow",
+        "name": "황색",
+        "outputs": [
+          "Y31"
+        ],
+        "timer": 1
+      },
+      {
+        "id": "red",
+        "name": "적색",
+        "outputs": [
+          "Y32"
+        ],
+        "timer": 3
+      }
+    ],
+    "transitions": [
+      {
+        "from": [
+          "green"
+        ],
+        "to": [
+          "yellow"
+        ],
+        "cond": {
+          "kind": "timer",
+          "step": "green"
+        }
+      },
+      {
+        "from": [
+          "yellow"
+        ],
+        "to": [
+          "red"
+        ],
+        "cond": {
+          "kind": "timer",
+          "step": "yellow"
+        }
+      },
+      {
+        "from": [
+          "red"
+        ],
+        "to": [
+          "green"
+        ],
+        "cond": {
+          "kind": "timer",
+          "step": "red"
+        }
+      }
+    ]
+  }
+}

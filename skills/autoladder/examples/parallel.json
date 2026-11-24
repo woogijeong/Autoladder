@@ -1,0 +1,238 @@
+{
+  "name": "두 실린더 동시 동작",
+  "tags": [
+    {
+      "address": "X0",
+      "name": "시작",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X1",
+      "name": "자동",
+      "meaning": "스위치",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X2",
+      "name": "원점복귀",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X3",
+      "name": "A후진단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X4",
+      "name": "A전진단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X5",
+      "name": "B후진단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X6",
+      "name": "B전진단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X7",
+      "name": "A전진",
+      "meaning": "수동버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X8",
+      "name": "A후진",
+      "meaning": "수동버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X9",
+      "name": "비상정지",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "B"
+    },
+    {
+      "address": "Y20",
+      "name": "A전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y21",
+      "name": "A후진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y22",
+      "name": "B전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y23",
+      "name": "B후진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    }
+  ],
+  "op": {
+    "start": "X0",
+    "estop": "X9",
+    "autoManual": "X1",
+    "homeButton": "X2",
+    "homeCondition": {
+      "kind": "and",
+      "conds": [
+        {
+          "kind": "input",
+          "address": "X3"
+        },
+        {
+          "kind": "input",
+          "address": "X5"
+        }
+      ]
+    },
+    "homeOutputs": [
+      "Y21",
+      "Y23"
+    ],
+    "manual": [
+      {
+        "button": "X7",
+        "output": "Y20"
+      },
+      {
+        "button": "X8",
+        "output": "Y21"
+      }
+    ],
+    "interlocks": [
+      [
+        "Y20",
+        "Y21"
+      ],
+      [
+        "Y22",
+        "Y23"
+      ]
+    ]
+  },
+  "table": {
+    "initial": "ready",
+    "steps": [
+      {
+        "id": "ready",
+        "name": "준비",
+        "outputs": [],
+        "timer": 1
+      },
+      {
+        "id": "a_fwd",
+        "name": "A전진",
+        "outputs": [
+          "Y20"
+        ],
+        "timer": null
+      },
+      {
+        "id": "b_fwd",
+        "name": "B전진",
+        "outputs": [
+          "Y22"
+        ],
+        "timer": null
+      },
+      {
+        "id": "back",
+        "name": "함께후진",
+        "outputs": [
+          "Y21",
+          "Y23"
+        ],
+        "timer": null
+      }
+    ],
+    "transitions": [
+      {
+        "from": [
+          "ready"
+        ],
+        "to": [
+          "a_fwd",
+          "b_fwd"
+        ],
+        "cond": {
+          "kind": "timer",
+          "step": "ready"
+        }
+      },
+      {
+        "from": [
+          "a_fwd",
+          "b_fwd"
+        ],
+        "to": [
+          "back"
+        ],
+        "cond": {
+          "kind": "and",
+          "conds": [
+            {
+              "kind": "input",
+              "address": "X4"
+            },
+            {
+              "kind": "input",
+              "address": "X6"
+            }
+          ]
+        }
+      },
+      {
+        "from": [
+          "back"
+        ],
+        "to": [],
+        "cond": {
+          "kind": "and",
+          "conds": [
+            {
+              "kind": "input",
+              "address": "X3"
+            },
+            {
+              "kind": "input",
+              "address": "X5"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

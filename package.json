@@ -1,0 +1,22 @@
+{
+  "name": "autoladder",
+  "version": "1.0.0",
+  "description": "공정 설명과 I/O 할당표로 미쓰비시 Q(GX Works2)용 래더 CSV를 만드는 도구. Claude Code 스킬로 쓴다",
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "build:cli": "vite build --config vite.cli.config.ts && node scripts/licenses.mjs",
+    "install:skill": "npm run build:cli && node -e \"require('fs').cpSync('skills/autoladder', require('path').join(require('os').homedir(), '.claude/skills/autoladder'), { recursive: true })\""
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "prettier": "^3.9.10",
+    "read-excel-file": "^9.3.20",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.1.1",
+    "zod": "^4.6.7"
+  }
+}

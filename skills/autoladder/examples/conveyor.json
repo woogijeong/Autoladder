@@ -1,0 +1,295 @@
+{
+  "name": "컨베이어 분류",
+  "tags": [
+    {
+      "address": "X0",
+      "name": "시작",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X1",
+      "name": "정지",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X2",
+      "name": "비상정지",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "B"
+    },
+    {
+      "address": "X3",
+      "name": "리셋",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X4",
+      "name": "투입감지",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X5",
+      "name": "판정위치",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X6",
+      "name": "불량감지",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X7",
+      "name": "끝단도착",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X8",
+      "name": "푸셔앞단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X9",
+      "name": "푸셔뒷단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "XA",
+      "name": "교체확인",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "Y20",
+      "name": "컨베이어",
+      "meaning": "모터",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y21",
+      "name": "푸셔전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y22",
+      "name": "상자교체",
+      "meaning": "램프",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y23",
+      "name": "이상",
+      "meaning": "램프",
+      "direction": "output",
+      "contact": "A"
+    }
+  ],
+  "op": {
+    "start": "X0",
+    "stop": "X1",
+    "estop": "X2",
+    "reset": "X3",
+    "homeCondition": {
+      "kind": "input",
+      "address": "X9"
+    },
+    "sensorPairs": [
+      [
+        "X8",
+        "X9"
+      ]
+    ],
+    "faultLamp": "Y23"
+  },
+  "table": {
+    "initial": "wait",
+    "steps": [
+      {
+        "id": "wait",
+        "name": "투입대기",
+        "outputs": [],
+        "timer": null
+      },
+      {
+        "id": "move",
+        "name": "이송",
+        "outputs": [
+          "Y20"
+        ],
+        "timer": null,
+        "timeLimit": 5
+      },
+      {
+        "id": "pass",
+        "name": "양품배출",
+        "outputs": [
+          "Y20"
+        ],
+        "timer": null
+      },
+      {
+        "id": "push",
+        "name": "불량밀기",
+        "outputs": [
+          "Y21"
+        ],
+        "timer": null
+      },
+      {
+        "id": "back",
+        "name": "푸셔복귀",
+        "outputs": [],
+        "timer": null
+      },
+      {
+        "id": "full",
+        "name": "상자교체",
+        "outputs": [
+          "Y22"
+        ],
+        "timer": null
+      }
+    ],
+    "transitions": [
+      {
+        "from": [
+          "wait"
+        ],
+        "to": [
+          "full"
+        ],
+        "cond": {
+          "kind": "counter",
+          "id": "good"
+        }
+      },
+      {
+        "from": [
+          "wait"
+        ],
+        "to": [
+          "move"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "X4"
+        }
+      },
+      {
+        "from": [
+          "move"
+        ],
+        "to": [
+          "push"
+        ],
+        "cond": {
+          "kind": "and",
+          "conds": [
+            {
+              "kind": "input",
+              "address": "X5"
+            },
+            {
+              "kind": "input",
+              "address": "X6"
+            }
+          ]
+        }
+      },
+      {
+        "from": [
+          "move"
+        ],
+        "to": [
+          "pass"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "X5"
+        }
+      },
+      {
+        "from": [
+          "pass"
+        ],
+        "to": [
+          "wait"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "X7"
+        },
+        "isCycleEnd": true
+      },
+      {
+        "from": [
+          "push"
+        ],
+        "to": [
+          "back"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "X8"
+        }
+      },
+      {
+        "from": [
+          "back"
+        ],
+        "to": [
+          "wait"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "X9"
+        },
+        "isCycleEnd": true
+      },
+      {
+        "from": [
+          "full"
+        ],
+        "to": [
+          "wait"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "XA"
+        }
+      }
+    ],
+    "counters": [
+      {
+        "id": "good",
+        "name": "양품",
+        "countOn": 4,
+        "target": 3,
+        "resetOn": 7
+      }
+    ]
+  }
+}

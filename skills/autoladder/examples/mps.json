@@ -1,0 +1,846 @@
+{
+  "name": "MPS 라인",
+  "tags": [
+    {
+      "address": "X0",
+      "name": "시작",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.0",
+      "name": "공급",
+      "meaning": "앞끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.1",
+      "name": "공급",
+      "meaning": "뒤끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.2",
+      "name": "송출",
+      "meaning": "앞끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.3",
+      "name": "송출",
+      "meaning": "뒤끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.4",
+      "name": "가공",
+      "meaning": "아래센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.5",
+      "name": "가공",
+      "meaning": "위센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.6",
+      "name": "배출",
+      "meaning": "앞끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.7",
+      "name": "배출",
+      "meaning": "뒤끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.8",
+      "name": "스토퍼",
+      "meaning": "아래센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.9",
+      "name": "스토퍼",
+      "meaning": "위센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.A",
+      "name": "흡착",
+      "meaning": "앞끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.B",
+      "name": "흡착",
+      "meaning": "뒤끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.C",
+      "name": "흡착패드",
+      "meaning": "칩잡음",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.D",
+      "name": "창고",
+      "meaning": "앞끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.E",
+      "name": "창고",
+      "meaning": "뒤끝센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D0.F",
+      "name": "공급센서",
+      "meaning": "칩있음",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D1.1",
+      "name": "물품감지",
+      "meaning": "칩있음",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D1.2",
+      "name": "금속감지",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D1.3",
+      "name": "스토퍼",
+      "meaning": "칩도착",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D2.0",
+      "name": "서보",
+      "meaning": "준비됨",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D2.C",
+      "name": "서보",
+      "meaning": "움직임",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D3.0",
+      "name": "서보",
+      "meaning": "기동완료",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D3.4",
+      "name": "서보",
+      "meaning": "위치완료",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D40",
+      "name": "리프트",
+      "meaning": "현재위치",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "D100.0",
+      "name": "공급전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.1",
+      "name": "공급후진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.2",
+      "name": "송출전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.3",
+      "name": "송출후진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.4",
+      "name": "가공하강",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.5",
+      "name": "배출전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.6",
+      "name": "배출후진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.7",
+      "name": "스토퍼",
+      "meaning": "올리기",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.8",
+      "name": "흡착전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.9",
+      "name": "흡착후진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.A",
+      "name": "흡착패드",
+      "meaning": "켜기",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.B",
+      "name": "창고전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.C",
+      "name": "창고후진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.D",
+      "name": "드릴",
+      "meaning": "회전",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D100.E",
+      "name": "컨베이어",
+      "meaning": "모터",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D102.0",
+      "name": "PLC준비",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D102.1",
+      "name": "서보켜기",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D102.4",
+      "name": "서보정지",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D102.8",
+      "name": "조그위로",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D102.C",
+      "name": "조그아래",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D103.0",
+      "name": "위치이동",
+      "meaning": "시작",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D140",
+      "name": "이동속도",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D142",
+      "name": "이동명령",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D144",
+      "name": "목표위치",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "D146",
+      "name": "조그속도",
+      "meaning": "",
+      "direction": "output",
+      "contact": "A"
+    }
+  ],
+  "op": {
+    "start": "X0",
+    "homeCondition": {
+      "kind": "and",
+      "conds": [
+        {
+          "kind": "input",
+          "address": "D0.1"
+        },
+        {
+          "kind": "input",
+          "address": "D0.3"
+        },
+        {
+          "kind": "input",
+          "address": "D0.5"
+        },
+        {
+          "kind": "input",
+          "address": "D0.7"
+        },
+        {
+          "kind": "input",
+          "address": "D0.B"
+        },
+        {
+          "kind": "input",
+          "address": "D0.E"
+        }
+      ]
+    },
+    "alwaysOn": [
+      "D102.0",
+      "D102.1"
+    ],
+    "alwaysWrites": [
+      {
+        "address": "D140",
+        "value": 10
+      },
+      {
+        "address": "D142",
+        "value": 9003
+      }
+    ]
+  },
+  "table": {
+    "initial": "wait",
+    "steps": [
+      {
+        "id": "wait",
+        "name": "칩대기",
+        "outputs": [],
+        "timer": null
+      },
+      {
+        "id": "supply",
+        "name": "공급",
+        "outputs": [
+          "D100.0"
+        ],
+        "timer": null
+      },
+      {
+        "id": "supplyBack",
+        "name": "공급복귀",
+        "outputs": [
+          "D100.1"
+        ],
+        "timer": null
+      },
+      {
+        "id": "drill",
+        "name": "가공",
+        "outputs": [
+          "D100.4",
+          "D100.D"
+        ],
+        "timer": 2
+      },
+      {
+        "id": "drillUp",
+        "name": "가공복귀",
+        "outputs": [],
+        "timer": null
+      },
+      {
+        "id": "emit",
+        "name": "송출",
+        "outputs": [
+          "D100.2"
+        ],
+        "timer": null
+      },
+      {
+        "id": "emitBack",
+        "name": "송출복귀",
+        "outputs": [
+          "D100.3"
+        ],
+        "timer": null
+      },
+      {
+        "id": "convey",
+        "name": "이송",
+        "outputs": [
+          "D100.E",
+          "D100.7"
+        ],
+        "timer": null
+      },
+      {
+        "id": "toStop",
+        "name": "스토퍼로",
+        "outputs": [
+          "D100.E",
+          "D100.7"
+        ],
+        "timer": null
+      },
+      {
+        "id": "down",
+        "name": "내려가기",
+        "outputs": [
+          "D103.0"
+        ],
+        "timer": null,
+        "writes": [
+          {
+            "address": "D144",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "id": "grab",
+        "name": "칩잡기",
+        "outputs": [
+          "D100.A"
+        ],
+        "timer": null
+      },
+      {
+        "id": "up",
+        "name": "올라가기",
+        "outputs": [
+          "D100.A",
+          "D103.0"
+        ],
+        "timer": null,
+        "writes": [
+          {
+            "address": "D144",
+            "value": 140
+          }
+        ]
+      },
+      {
+        "id": "stockFwd",
+        "name": "창고전진",
+        "outputs": [
+          "D100.A",
+          "D100.B"
+        ],
+        "timer": null
+      },
+      {
+        "id": "padFwd",
+        "name": "흡착전진",
+        "outputs": [
+          "D100.A",
+          "D100.8"
+        ],
+        "timer": null
+      },
+      {
+        "id": "place",
+        "name": "내려놓기",
+        "outputs": [],
+        "timer": null
+      },
+      {
+        "id": "padBack",
+        "name": "흡착후진",
+        "outputs": [
+          "D100.9"
+        ],
+        "timer": null
+      },
+      {
+        "id": "stockBack",
+        "name": "창고후진",
+        "outputs": [
+          "D100.C"
+        ],
+        "timer": null
+      },
+      {
+        "id": "toOut",
+        "name": "배출위치",
+        "outputs": [
+          "D100.E"
+        ],
+        "timer": 1.6
+      },
+      {
+        "id": "push",
+        "name": "배출",
+        "outputs": [
+          "D100.5"
+        ],
+        "timer": null
+      },
+      {
+        "id": "pushBack",
+        "name": "배출복귀",
+        "outputs": [
+          "D100.6"
+        ],
+        "timer": null
+      }
+    ],
+    "transitions": [
+      {
+        "from": [
+          "wait"
+        ],
+        "to": [
+          "supply"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.F"
+        }
+      },
+      {
+        "from": [
+          "supply"
+        ],
+        "to": [
+          "supplyBack"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.0"
+        }
+      },
+      {
+        "from": [
+          "supplyBack"
+        ],
+        "to": [
+          "drill"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.1"
+        }
+      },
+      {
+        "from": [
+          "drill"
+        ],
+        "to": [
+          "drillUp"
+        ],
+        "cond": {
+          "kind": "and",
+          "conds": [
+            {
+              "kind": "input",
+              "address": "D0.4"
+            },
+            {
+              "kind": "timer",
+              "step": "drill"
+            }
+          ]
+        }
+      },
+      {
+        "from": [
+          "drillUp"
+        ],
+        "to": [
+          "emit"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.5"
+        }
+      },
+      {
+        "from": [
+          "emit"
+        ],
+        "to": [
+          "emitBack"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.2"
+        }
+      },
+      {
+        "from": [
+          "emitBack"
+        ],
+        "to": [
+          "convey"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.3"
+        }
+      },
+      {
+        "from": [
+          "convey"
+        ],
+        "to": [
+          "toStop"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D1.2"
+        }
+      },
+      {
+        "from": [
+          "convey"
+        ],
+        "to": [
+          "toOut"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D1.1"
+        }
+      },
+      {
+        "from": [
+          "toStop"
+        ],
+        "to": [
+          "down"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D1.3"
+        }
+      },
+      {
+        "from": [
+          "down"
+        ],
+        "to": [
+          "grab"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D3.4"
+        }
+      },
+      {
+        "from": [
+          "grab"
+        ],
+        "to": [
+          "up"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.C"
+        }
+      },
+      {
+        "from": [
+          "up"
+        ],
+        "to": [
+          "stockFwd"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D3.4"
+        }
+      },
+      {
+        "from": [
+          "stockFwd"
+        ],
+        "to": [
+          "padFwd"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.D"
+        }
+      },
+      {
+        "from": [
+          "padFwd"
+        ],
+        "to": [
+          "place"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.A"
+        }
+      },
+      {
+        "from": [
+          "place"
+        ],
+        "to": [
+          "padBack"
+        ],
+        "cond": {
+          "kind": "not",
+          "cond": {
+            "kind": "input",
+            "address": "D0.C"
+          }
+        }
+      },
+      {
+        "from": [
+          "padBack"
+        ],
+        "to": [
+          "stockBack"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.B"
+        }
+      },
+      {
+        "from": [
+          "stockBack"
+        ],
+        "to": [
+          "wait"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.E"
+        },
+        "isCycleEnd": true
+      },
+      {
+        "from": [
+          "toOut"
+        ],
+        "to": [
+          "push"
+        ],
+        "cond": {
+          "kind": "timer",
+          "step": "toOut"
+        }
+      },
+      {
+        "from": [
+          "push"
+        ],
+        "to": [
+          "pushBack"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.6"
+        }
+      },
+      {
+        "from": [
+          "pushBack"
+        ],
+        "to": [
+          "wait"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "D0.7"
+        },
+        "isCycleEnd": true
+      }
+    ]
+  }
+}

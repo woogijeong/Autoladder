@@ -1,0 +1,141 @@
+{
+  "name": "실린더 순차 왕복",
+  "tags": [
+    {
+      "address": "X0",
+      "name": "시작",
+      "meaning": "버튼",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X1",
+      "name": "A후진단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X2",
+      "name": "A전진단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X3",
+      "name": "B후진단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "X4",
+      "name": "B전진단",
+      "meaning": "센서",
+      "direction": "input",
+      "contact": "A"
+    },
+    {
+      "address": "Y20",
+      "name": "A전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    },
+    {
+      "address": "Y21",
+      "name": "B전진",
+      "meaning": "솔밸브",
+      "direction": "output",
+      "contact": "A"
+    }
+  ],
+  "op": {
+    "start": "X0"
+  },
+  "table": {
+    "initial": "a_fwd",
+    "steps": [
+      {
+        "id": "a_fwd",
+        "name": "A전진",
+        "outputs": [
+          "Y20"
+        ],
+        "timer": null
+      },
+      {
+        "id": "b_fwd",
+        "name": "B전진",
+        "outputs": [
+          "Y20",
+          "Y21"
+        ],
+        "timer": null
+      },
+      {
+        "id": "b_back",
+        "name": "B후진",
+        "outputs": [
+          "Y20"
+        ],
+        "timer": null
+      },
+      {
+        "id": "a_back",
+        "name": "A후진",
+        "outputs": [],
+        "timer": null
+      }
+    ],
+    "transitions": [
+      {
+        "from": [
+          "a_fwd"
+        ],
+        "to": [
+          "b_fwd"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "X2"
+        }
+      },
+      {
+        "from": [
+          "b_fwd"
+        ],
+        "to": [
+          "b_back"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "X4"
+        }
+      },
+      {
+        "from": [
+          "b_back"
+        ],
+        "to": [
+          "a_back"
+        ],
+        "cond": {
+          "kind": "input",
+          "address": "X3"
+        }
+      },
+      {
+        "from": [
+          "a_back"
+        ],
+        "to": [],
+        "cond": {
+          "kind": "input",
+          "address": "X1"
+        }
+      }
+    ]
+  }
+}
